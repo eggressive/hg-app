@@ -1,11 +1,7 @@
-image: gitpod/workspace-python-3.12
+image:
+  file: .gitpod.Dockerfile
 
 tasks:
-    - name: Setup python3 venv
-      before: |
-        python3 -m venv .venv && source .venv/bin/activate
-        python -m pip install --upgrade pip
-        pip install --upgrade git+https://github.com/huggingface/transformers.git accelerate datasets[audio]
     - name: dev env setup
       init: |
         cp ./dev-env/bash_aliases ~/.bash_aliases
@@ -21,8 +17,3 @@ vscode:
     - donjayamanne.python-environment-manager
     - njpwerner.autodocstring
     - batisteo.vscode-django
-    - ms-toolsai.jupyter
-    - ms-toolsai.jupyter-keymap
-    - ms-toolsai.jupyter-renderers
-    - ms-toolsai.vscode-jupyter-cell-tags
-    - ms-toolsai.vscode-jupyter-slideshow
